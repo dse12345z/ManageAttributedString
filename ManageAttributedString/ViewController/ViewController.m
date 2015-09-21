@@ -81,7 +81,7 @@
     multString.add(@"Label4 ")
     .add(@"Hello".color(DFColorBlack).font(DFHelveticaNeue10))
     .add(@" Word ".color(DFColorOrange).font(DFHelveticaNeue15).bColor(DFColorBlue))
-    .add(@"99999".color(DFColorBlue).font(DFHelveticaNeue30).shadowColor(DFShadowColorOrange));
+    .add(@"99999".color(DFColorBlue).font(DFHelveticaNeue30).shadow(DFShadowColorOrange));
     label4.attributedText = multString;
     
     
