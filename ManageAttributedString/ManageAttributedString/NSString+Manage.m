@@ -11,30 +11,24 @@
 
 typedef NSMutableAttributedString * (^AttributedString)(id input);
 
-@implementation NSString (ManageNSString)
-// 新增 Attributes 必需添加 @dynamic
+@implementation NSString (Manage)
 @dynamic add;
+
+// 新增 Attributes 必需添加 @dynamic
+// 字型
 @dynamic font;
-@dynamic paragraphStyle;
-@dynamic color;
-@dynamic bColor;
-@dynamic ligature;
-@dynamic kern;
-@dynamic strikethroughStyle;
-@dynamic underlineStyle;
-@dynamic strokeColor;
-@dynamic strokeWidth;
-@dynamic shadow;
-@dynamic textEffect;
+
+// 顏色
+@dynamic color, backgroundColor, strokeColor, underlineColor, strikethroughColor;
+
+// 特效
+@dynamic shadow, link, ligature, strokeWidth, textEffect, obliqueness, expansion, paragraphStyle, strikethroughStyle, underlineStyle;
+
+// 排版
+@dynamic kern, baselineOffset, writingDirection, verticalGlyph;
+
+// 附加
 @dynamic attachment;
-@dynamic link;
-@dynamic baselineOffset;
-@dynamic underlineColor;
-@dynamic strikethroughColor;
-@dynamic obliqueness;
-@dynamic expansion;
-@dynamic writingDirection;
-@dynamic verticalGlyph;
 
 #pragma mark - instance method
 
@@ -66,7 +60,7 @@ typedef NSMutableAttributedString * (^AttributedString)(id input);
     return [self attributesType:NSForegroundColorAttributeName];
 }
 
-- (NSMutableAttributedString *(^)(UIColor *bColor))bColor {
+- (NSMutableAttributedString *(^)(UIColor *backgroundColor))backgroundColor {
     return [self attributesType:NSBackgroundColorAttributeName];
 }
 
@@ -143,7 +137,7 @@ typedef NSMutableAttributedString * (^AttributedString)(id input);
 - (AttributedString)attributesType:(NSString *)attributesType {
     __weak typeof(self) weakSelf = self;
     
-    return ^NSMutableAttributedString *(NSString *input) {
+    return ^NSMutableAttributedString *(id input) {
         NSRange range = NSMakeRange(0, weakSelf.length);
         NSMutableAttributedString *multString = [[NSMutableAttributedString alloc] initWithString:weakSelf];
         [multString addAttribute:attributesType value:input range:range];

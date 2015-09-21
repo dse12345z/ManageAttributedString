@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NSMutableAttributedString (ManageAttributedString)
+@interface NSMutableAttributedString (Manage)
 
 // 新增 Attributes 必需添加 @property
 @property (nonatomic, readonly) NSMutableAttributedString * (^add)(id addString);
 @property (nonatomic, readonly) NSMutableAttributedString * (^font)(UIFont *font);
 @property (nonatomic, readonly) NSMutableAttributedString * (^paragraphStyle)(NSParagraphStyle *paragraphStyle);
 @property (nonatomic, readonly) NSMutableAttributedString * (^color)(UIColor *color);
-@property (nonatomic, readonly) NSMutableAttributedString * (^bColor)(UIColor *bColor);
+@property (nonatomic, readonly) NSMutableAttributedString * (^backgroundColor)(UIColor *backgroundColor);
 @property (nonatomic, readonly) NSMutableAttributedString * (^ligature)(NSNumber *ligature);
 @property (nonatomic, readonly) NSMutableAttributedString * (^kern)(NSNumber *kern);
 @property (nonatomic, readonly) NSMutableAttributedString * (^strikethroughStyle)(NSNumber *strikethroughStyle);

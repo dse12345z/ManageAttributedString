@@ -80,7 +80,7 @@
     [multString.mutableString setString:@""];
     multString.add(@"Label4 ")
     .add(@"Hello".color(DFColorBlack).font(DFHelveticaNeue10))
-    .add(@" Word ".color(DFColorOrange).font(DFHelveticaNeue15).bColor(DFColorBlue))
+    .add(@" Word ".color(DFColorOrange).font(DFHelveticaNeue15).backgroundColor(DFColorBlue))
     .add(@"99999".color(DFColorBlue).font(DFHelveticaNeue30).shadow(DFShadowColorOrange));
     label4.attributedText = multString;
     
@@ -113,6 +113,23 @@
     //統一顏色
     multString.color(DFColorBlue);
     label6.attributedText = multString;
+    
+    
+    // label7 NSTextAttachment
+    UILabel *label7 = [[UILabel alloc] initWithFrame:CGRectMake(0, 400, 320, 50)];
+    label7.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:label7];
+    
+    NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
+    textAttachment.image = [UIImage imageNamed: @"Default-568h@2x.png"];
+    textAttachment.bounds = CGRectMake(0, 0, 1, 30);
+    
+    [multString.mutableString setString:@""];
+    multString.add(@"Label ");
+    multString.add(@"Hello".font(helveticaNeue10));
+    multString.add(@" Word ".font(helveticaNeue15));
+    multString.add(@"99999".font(helveticaNeue30).attachment(textAttachment));
+    label7.attributedText = multString;
 }
 
 @end
