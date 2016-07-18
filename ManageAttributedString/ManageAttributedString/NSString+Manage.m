@@ -12,7 +12,7 @@
 typedef NSMutableAttributedString * (^AttributedString)(id input);
 
 @implementation NSString (Manage)
-@dynamic add;
+@dynamic append;
 
 // 新增 Attributes 必需添加 @dynamic
 // 字型
@@ -28,17 +28,31 @@ typedef NSMutableAttributedString * (^AttributedString)(id input);
 @dynamic kern, baselineOffset, writingDirection, verticalGlyph;
 
 // 附加
-@dynamic attachment;
+//@dynamic attachment;
 
 #pragma mark - instance method
 
-- (NSMutableAttributedString * (^)(NSString *addString))add {
+- (NSMutableAttributedString * (^)(id addString))append {
     __weak typeof(self) weakSelf = self;
     
-    return ^NSMutableAttributedString *(NSString *input) {
-        NSAttributedString *oldAttributeString = [[NSAttributedString alloc] initWithString:weakSelf];
-        NSAttributedString *newAttributeString = [[NSAttributedString alloc] initWithString:input];
+    return ^NSMutableAttributedString *(id input) {
         NSMutableAttributedString *multAttributeString = [[NSMutableAttributedString alloc] init];
+        NSAttributedString *oldAttributeString = [[NSAttributedString alloc] initWithString:weakSelf];
+        NSAttributedString *newAttributeString;
+        if ([input isKindOfClass:[NSString class]]) {
+            newAttributeString = [[NSAttributedString alloc] initWithString:input];
+        }
+        else if ([input isKindOfClass:[NSMutableAttributedString class]]) {
+            newAttributeString = [[NSAttributedString alloc] initWithAttributedString:input];
+        }
+        else if ([input isKindOfClass:[UIImage class]]) {
+            NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
+            textAttachment.image = (UIImage *)input;
+            newAttributeString = [NSAttributedString attributedStringWithAttachment:textAttachment];
+        }
+        else {
+            NSAssert(0, @"add(Obj) 檢查 Obj 是否是 NSString 或 NSMutableAttributedString 類別");
+        }
         [multAttributeString appendAttributedString:oldAttributeString];
         [multAttributeString appendAttributedString:newAttributeString];
         return multAttributeString;
@@ -96,9 +110,9 @@ typedef NSMutableAttributedString * (^AttributedString)(id input);
     return [self attributesType:NSTextEffectAttributeName];
 }
 
-- (NSMutableAttributedString *(^)(NSTextAttachment *attachment))attachment {
-    return [self attributesType:NSAttachmentAttributeName];
-}
+//- (NSMutableAttributedString *(^)(NSTextAttachment *attachment))attachment {
+//    return [self attributesType:NSAttachmentAttributeName];
+//}
 
 - (NSMutableAttributedString *(^)(NSURL *link))link {
     return [self attributesType:NSLinkAttributeName];

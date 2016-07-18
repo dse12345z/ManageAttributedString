@@ -12,7 +12,8 @@
 typedef NSMutableAttributedString * (^AttributedString)(id input);
 
 @implementation NSMutableAttributedString (Manage)
-@dynamic add;
+@dynamic append;
+@dynamic clear;
 
 // 新增 Attributes 必需添加 @dynamic
 // 字型
@@ -28,11 +29,11 @@ typedef NSMutableAttributedString * (^AttributedString)(id input);
 @dynamic kern, baselineOffset, writingDirection, verticalGlyph;
 
 // 附加
-@dynamic attachment;
+//@dynamic attachment;
 
 #pragma mark - instance method
 
-- (NSMutableAttributedString * (^)(id addString))add {
+- (NSMutableAttributedString * (^)(id addString))append {
     __weak typeof(self) weakSelf = self;
     
     return ^NSMutableAttributedString *(id input) {
@@ -44,9 +45,23 @@ typedef NSMutableAttributedString * (^AttributedString)(id input);
             NSAttributedString *newAttributeString = [[NSAttributedString alloc] initWithAttributedString:input];
             [weakSelf appendAttributedString:newAttributeString];
         }
+        else if ([input isKindOfClass:[UIImage class]]) {
+            NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
+            textAttachment.image = (UIImage *)input;
+            NSAttributedString *imageAttributedString = [NSAttributedString attributedStringWithAttachment:textAttachment];
+            [weakSelf appendAttributedString:imageAttributedString];
+        }
         else {
             NSAssert(0, @"add(Obj) 檢查 Obj 是否是 NSString 或 NSMutableAttributedString 類別");
         }
+        return weakSelf;
+    };
+}
+
+- (NSMutableAttributedString *(^)(void))clear {
+    __weak typeof(self) weakSelf = self;
+    return ^NSMutableAttributedString *(void) {
+        [weakSelf.mutableString setString:@""];
         return weakSelf;
     };
 }
@@ -102,9 +117,9 @@ typedef NSMutableAttributedString * (^AttributedString)(id input);
     return [self attributesType:NSTextEffectAttributeName];
 }
 
-- (NSMutableAttributedString *(^)(NSTextAttachment *attachment))attachment {
-    return [self attributesType:NSAttachmentAttributeName];
-}
+//- (NSMutableAttributedString *(^)(NSTextAttachment *attachment))attachment {
+//    return [self attributesType:NSAttachmentAttributeName];
+//}
 
 - (NSMutableAttributedString *(^)(NSURL *link))link {
     return [self attributesType:NSLinkAttributeName];
