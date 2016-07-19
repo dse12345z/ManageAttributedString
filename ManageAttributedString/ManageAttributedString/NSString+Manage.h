@@ -10,7 +10,6 @@
 
 @interface NSString (Manage)
 
-// 新增 Attributes 必需添加 @property
 @property (nonatomic, readonly) NSMutableAttributedString *(^append)(id addString);
 @property (nonatomic, readonly) NSMutableAttributedString *(^font)(UIFont *font);
 @property (nonatomic, readonly) NSMutableAttributedString *(^color)(UIColor *color);
@@ -23,7 +22,6 @@
 @property (nonatomic, readonly) NSMutableAttributedString *(^strokeWidth)(NSNumber *strokeWidth);
 @property (nonatomic, readonly) NSMutableAttributedString *(^shadow)(NSShadow *shadow);
 @property (nonatomic, readonly) NSMutableAttributedString *(^textEffect)(NSString *textEffect);
-//@property (nonatomic, readonly) NSMutableAttributedString *(^attachment)(NSTextAttachment *attachment);
 @property (nonatomic, readonly) NSMutableAttributedString *(^link)(NSURL *link);
 @property (nonatomic, readonly) NSMutableAttributedString *(^baselineOffset)(NSNumber *baselineOffset);
 @property (nonatomic, readonly) NSMutableAttributedString *(^underlineColor)(UIColor *underlineColor);

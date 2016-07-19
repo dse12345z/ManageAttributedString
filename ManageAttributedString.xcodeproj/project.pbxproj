@@ -11,7 +11,6 @@
 		7E602A421B9FD9A600E72830 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E602A401B9FD9A600E72830 /* ViewController.xib */; };
 		7E688A4E1D3CD9E500985C63 /* UIImage+Manage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E688A4D1D3CD9E500985C63 /* UIImage+Manage.m */; };
 		7EAD97311B9D83850072080F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EAD97301B9D83850072080F /* Default-568h@2x.png */; };
-		7EAD973B1B9D973F0072080F /* ProjectFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EAD973A1B9D973F0072080F /* ProjectFont.m */; };
 		7EAE2EEC1B985A6C00CDBB3F /* NSMutableAttributedString+Manage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EAE2EEB1B985A6C00CDBB3F /* NSMutableAttributedString+Manage.m */; };
 		7EC0D4091B86F41500052BD2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC0D4081B86F41500052BD2 /* main.m */; };
 		7EC0D40C1B86F41500052BD2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC0D40B1B86F41500052BD2 /* AppDelegate.m */; };
@@ -37,8 +36,6 @@
 		7E688A4C1D3CD9E500985C63 /* UIImage+Manage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Manage.h"; sourceTree = "<group>"; };
 		7E688A4D1D3CD9E500985C63 /* UIImage+Manage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Manage.m"; sourceTree = "<group>"; };
 		7EAD97301B9D83850072080F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		7EAD97391B9D973F0072080F /* ProjectFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectFont.h; sourceTree = "<group>"; };
-		7EAD973A1B9D973F0072080F /* ProjectFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectFont.m; sourceTree = "<group>"; };
 		7EAE2EEA1B985A6C00CDBB3F /* NSMutableAttributedString+Manage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+Manage.h"; sourceTree = "<group>"; };
 		7EAE2EEB1B985A6C00CDBB3F /* NSMutableAttributedString+Manage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+Manage.m"; sourceTree = "<group>"; };
 		7EC0D4031B86F41500052BD2 /* ManageAttributedString.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ManageAttributedString.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,8 +82,6 @@
 		7E714ABF1B955D2700ABC0FF /* ManageAttributedString */ = {
 			isa = PBXGroup;
 			children = (
-				7EAD97391B9D973F0072080F /* ProjectFont.h */,
-				7EAD973A1B9D973F0072080F /* ProjectFont.m */,
 				7EAE2EEA1B985A6C00CDBB3F /* NSMutableAttributedString+Manage.h */,
 				7EAE2EEB1B985A6C00CDBB3F /* NSMutableAttributedString+Manage.m */,
 				7ED7AC9A1B9EC4810035C1ED /* NSString+Manage.h */,
@@ -258,7 +253,6 @@
 			files = (
 				7E602A411B9FD9A600E72830 /* ViewController.m in Sources */,
 				7ED7AC9C1B9EC4810035C1ED /* NSString+Manage.m in Sources */,
-				7EAD973B1B9D973F0072080F /* ProjectFont.m in Sources */,
 				7EC0D40C1B86F41500052BD2 /* AppDelegate.m in Sources */,
 				7EC0D4091B86F41500052BD2 /* main.m in Sources */,
 				7E688A4E1D3CD9E500985C63 /* UIImage+Manage.m in Sources */,

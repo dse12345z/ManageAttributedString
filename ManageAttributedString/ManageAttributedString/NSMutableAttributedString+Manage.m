@@ -15,7 +15,6 @@ typedef NSMutableAttributedString * (^AttributedString)(id input);
 @dynamic append;
 @dynamic clear;
 
-// 新增 Attributes 必需添加 @dynamic
 // 字型
 @dynamic font;
 
@@ -27,9 +26,6 @@ typedef NSMutableAttributedString * (^AttributedString)(id input);
 
 // 排版
 @dynamic kern, baselineOffset, writingDirection, verticalGlyph;
-
-// 附加
-//@dynamic attachment;
 
 #pragma mark - instance method
 
@@ -66,8 +62,7 @@ typedef NSMutableAttributedString * (^AttributedString)(id input);
     };
 }
 
-#pragma mark - instance attributes method
-// 新增 Attributes 必需添加 method, 與相對應 Attributes NSString
+#pragma mark - instance method
 
 - (NSMutableAttributedString *(^)(UIFont *font))font {
     return [self attributesType:NSFontAttributeName];
@@ -116,12 +111,6 @@ typedef NSMutableAttributedString * (^AttributedString)(id input);
 - (NSMutableAttributedString *(^)(NSString *textEffect))textEffect {
     return [self attributesType:NSTextEffectAttributeName];
 }
-
-/*
- - (NSMutableAttributedString *(^)(NSTextAttachment *attachment))attachment {
- return [self attributesType:NSAttachmentAttributeName];
- }
- */
 
 - (NSMutableAttributedString *(^)(NSURL *link))link {
     return [self attributesType:NSLinkAttributeName];
