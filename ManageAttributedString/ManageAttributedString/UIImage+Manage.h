@@ -11,5 +11,6 @@
 @interface UIImage (Manage)
 
 @property (nonatomic, readonly) NSMutableAttributedString *(^bounds)(CGRect bounds);
+@property (nonatomic, readonly) NSMutableAttributedString *(^attributedString)(void);
 
 @end

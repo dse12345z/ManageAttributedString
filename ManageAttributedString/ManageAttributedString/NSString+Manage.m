@@ -22,7 +22,7 @@ typedef NSMutableAttributedString * (^AttributedString)(id input);
 @dynamic color, backgroundColor, strokeColor, underlineColor, strikethroughColor;
 
 // 特效
-@dynamic shadow, link, ligature, strokeWidth, textEffect, obliqueness, expansion, paragraphStyle, strikethroughStyle, underlineStyle;
+@dynamic shadow, link, ligature, strokeWidth, textEffect, obliqueness, expansion, strikethroughStyle, underlineStyle;
 
 // 排版
 @dynamic kern, baselineOffset, writingDirection, verticalGlyph;
@@ -64,10 +64,6 @@ typedef NSMutableAttributedString * (^AttributedString)(id input);
 
 - (NSMutableAttributedString *(^)(UIFont *font))font {
     return [self attributesType:NSFontAttributeName];
-}
-
-- (NSMutableAttributedString *(^)(NSParagraphStyle *paragraphStyle))paragraphStyle {
-    return [self attributesType:NSParagraphStyleAttributeName];
 }
 
 - (NSMutableAttributedString *(^)(UIColor *color))color {

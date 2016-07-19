@@ -117,9 +117,11 @@ typedef NSMutableAttributedString * (^AttributedString)(id input);
     return [self attributesType:NSTextEffectAttributeName];
 }
 
-//- (NSMutableAttributedString *(^)(NSTextAttachment *attachment))attachment {
-//    return [self attributesType:NSAttachmentAttributeName];
-//}
+/*
+ - (NSMutableAttributedString *(^)(NSTextAttachment *attachment))attachment {
+ return [self attributesType:NSAttachmentAttributeName];
+ }
+ */
 
 - (NSMutableAttributedString *(^)(NSURL *link))link {
     return [self attributesType:NSLinkAttributeName];

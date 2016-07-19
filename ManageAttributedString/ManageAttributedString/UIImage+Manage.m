@@ -13,6 +13,7 @@ typedef NSMutableAttributedString * (^AttributedString)(id input);
 
 @implementation UIImage (Manage)
 @dynamic bounds;
+@dynamic attributedString;
 
 #pragma mark - instance attributes method
 
@@ -23,11 +24,20 @@ typedef NSMutableAttributedString * (^AttributedString)(id input);
         textAttachment.image = weakSelf;
         textAttachment.bounds = bounds;
         NSAttributedString *imageAttributedString = [NSAttributedString attributedStringWithAttachment:textAttachment];
-        NSMutableAttributedString *multString = [[NSMutableAttributedString alloc] initWithAttributedString:imageAttributedString];
-        return multString;
+        NSMutableAttributedString *mutableString = [[NSMutableAttributedString alloc] initWithAttributedString:imageAttributedString];
+        return mutableString;
     };
 }
 
-#pragma mark - private instance method
+- (NSMutableAttributedString *(^)(void))attributedString {
+    __weak typeof(self) weakSelf = self;
+    return ^NSMutableAttributedString *(void) {
+        NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
+        textAttachment.image = weakSelf;
+        NSAttributedString *imageAttributedString = [NSAttributedString attributedStringWithAttachment:textAttachment];
+        NSMutableAttributedString *mutableString = [[NSMutableAttributedString alloc] initWithAttributedString:imageAttributedString];
+        return mutableString;
+    };
+}
 
 @end
