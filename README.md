@@ -1,4 +1,5 @@
 ManageAttributedString
+責任鏈模式(Chain of Responsibility)
 =============
 ![alt tag](http://i.imgur.com/le5K6ZA.png) 
 
