@@ -1,5 +1,7 @@
 使用責任鏈模式(Chain of Responsibility) 實作 ManageAttributedString
 
+
+
 =============
 ![alt tag](http://i.imgur.com/le5K6ZA.png) 
 
